@@ -13,7 +13,7 @@ while(<KM>){
 close KM;
 ##merge two vertice
 @{$vertice{1}}=( @{$vertice{1}},@{$vertice{4}});
-#delete $vertice[3];
+delete $vertice{4};
 
 print "@{$vertice{1}}", "\n";
 
