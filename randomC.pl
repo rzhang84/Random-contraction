@@ -11,20 +11,18 @@ while(<KM>){
 	$vertice{shift @number}=\@number;
 }
 close KM;
-my $i=int(rand(200))+1; ##keep
-my $j=int(rand(200))+1; ##to delete
-while($i==$j){
-    $j=int(rand(200))+1;		
-} 
+my $i=0; ##keep
+my $j=0; ##to delete
 my @k=(); ##to collect
 
 for (my $n=0;$n<200;$n++){##random
-    while (grep {$_ eq $i || $_ eq $j} @k){
-        $i=int(rand(200));
-        $j=int(rand(200));
-        while($i==$j){
-            $j=int(rand(200));		
-        }  	        }
+    $i=int(rand(200))+1;
+    $j=int(rand(200))+1;
+    while (grep {$_ eq $i} @k){
+        $i=int(rand(200))+1;  	        }
+    while(grep {$_ eq $j} @k || $i==$j){
+        $j=int(rand(200))+1;  
+    }
     
     push @k, $j;
     print "$i $j \n";
