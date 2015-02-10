@@ -12,16 +12,19 @@ while(<KM>){
 }
 close KM;
 ##merge two vertice
-#@{$vertice[0]}=( @{$vertice[0]},@{$vertice[3]});
+@{$vertice{1}}=( @{$vertice{1}},@{$vertice{4}});
 #delete $vertice[3];
 
-print ${$vertice{1}}, "\n";
+print "@{$vertice{1}}", "\n";
 
 ###delete self loop
-#my %seen = ();
-#@{$vertice[0]}= grep {#
-#	!$seen{$_ }++;
-#	} @{$vertice[0]};
+my %seen = ();
+@{$vertice{1}}= grep { 
+	!$seen{$_ }++;
+	} @{$vertice{1}};
 
-#print "@{$vertice[0]} \n";
+@{$vertice{1}}= grep { 
+	$_ != '1' || $_!= '4';
+	} @{$vertice{1}};
+print "@{$vertice{1}} \n";
 ###count
