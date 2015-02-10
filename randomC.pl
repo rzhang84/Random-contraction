@@ -11,21 +11,20 @@ while(<KM>){
 	$vertice{shift @number}=\@number;
 }
 close KM;
-##merge two vertice
-@{$vertice{1}}=( @{$vertice{1}},@{$vertice{4}});
-delete $vertice{4};
-
-print "@{$vertice{1}}", "\n";
+my $i=1;
+my $j=4;
+$i=int(rand(200));
+$j=int(rand(200));
+while($i==$j){
+    $j=int(rand(200));		}
+print "$i $j \n";
+##merge two vertice
+@{$vertice{$i}}=( @{$vertice{$i}},@{$vertice{$j}});
+delete $vertice{$j};
 
 ###delete self loop
-my %seen = ();
-@{$vertice{1}}= grep { 
-	!$seen{$_ }++;
-	} @{$vertice{1}};
-
-@{$vertice{1}}= grep { 
+@{$vertice{$i}}= grep { 
 	$_!= '4';
-	} @{$vertice{1}};
+	} @{$vertice{$i}};
 	
-print "@{$vertice{1}} \n";
-###count
+###count
