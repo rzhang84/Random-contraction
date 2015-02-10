@@ -13,7 +13,8 @@ while(<KM>){
 close KM;
 my $i=1;
 my $j=4;
-$i=int(rand(200));
+
+##random $i=int(rand(200));
 $j=int(rand(200));
 while($i==$j){
     $j=int(rand(200));		}
@@ -21,10 +22,12 @@ print "$i $j \n";
 ##merge two vertice
 @{$vertice{$i}}=( @{$vertice{$i}},@{$vertice{$j}});
 delete $vertice{$j};
+my %merge=();
+$merge{$i}=$j;
 
 ###delete self loop
 @{$vertice{$i}}= grep { 
-	$_!= '4';
+	$_!= merge{$i};
 	} @{$vertice{$i}};
 	
 ###count
