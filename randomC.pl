@@ -24,7 +24,8 @@ my %seen = ();
 	} @{$vertice{1}};
 
 @{$vertice{1}}= grep { 
-	$_ != '1' || $_!= '4';
+	$_!= '4';
 	} @{$vertice{1}};
+	
 print "@{$vertice{1}} \n";
 ###count
